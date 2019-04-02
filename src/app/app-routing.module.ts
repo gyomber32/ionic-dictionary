@@ -2,8 +2,23 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  {
+    path: '',
+    redirectTo: 'dictionary',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dictionary',
+    loadChildren: './dictionary/dictionary.module#DictionaryPageModule'
+  },
+  {
+    path: 'translate',
+    loadChildren: './translate/translate.module#TranslatePageModule'
+  },
+  {
+    path: 'add',
+    loadChildren: './add/add.module#AddPageModule'
+  },
 ];
 
 @NgModule({

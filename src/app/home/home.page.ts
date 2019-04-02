@@ -6,21 +6,31 @@ import { MenuController } from '@ionic/angular';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage {
+
   constructor(private menu: MenuController) { }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
+  menuItems = [
+    {
+      title: 'Dictionary',
+      path: '',
+      icon: 'book'
+    },
+    {
+      title: 'Translate',
+      path: '',
+      icon: 'swap'
+    },
+    {
+      title: 'Add',
+      path: '',
+      icon: 'add-circle-outline'
+    }
+  ];
 
-  openEnd() {
-    this.menu.open('end');
-  }
-
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
+  open() {
+    this.menu.open('menu');
   }
 
 }

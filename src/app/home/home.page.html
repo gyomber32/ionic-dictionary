@@ -6,17 +6,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-menu side="start" menuId="custom" class="my-custom-menu">
+<ion-menu side="start" menuId="menu" class="my-custom-menu">
   <ion-header>
-    <ion-toolbar color="tertiary">
-      <ion-title>Custom Menu</ion-title>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-list>
-      <ion-item>Dictionary</ion-item>
-      <ion-item>Translate</ion-item>
-      <ion-item>Add</ion-item>
+    <ion-list *ngFor='let menuItem of menuItems'>
+      <ion-item (click)='navigate(menuItem.path)'>
+        <ion-icon [name]="menuItem.icon"></ion-icon>
+        {{ menuItem.title }}
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>

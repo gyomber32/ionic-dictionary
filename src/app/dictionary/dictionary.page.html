@@ -6,3 +6,32 @@
         <ion-title>Dictionary Page</ion-title>
     </ion-toolbar>
 </ion-header>
+
+<ion-item>
+    <ion-label style='font-weight: bold;'>English</ion-label>
+    <ion-label style='font-weight: bold;'>Hungarian</ion-label>
+    <!--IF WIDTH IS SMALLER THAN X, THEN JUST DISPALY POS-->
+    <ion-label style='font-weight: bold;'>Parts Of Speech</ion-label>
+</ion-item>
+
+<ion-content>
+    <ion-virtual-scroll [items]="dictionary">
+        <ion-item-sliding #itemSliding *virtualItem="let item" (ionDrag)='autoHide(itemSliding)'>
+            <ion-item (click)='openModal(item)' (click)='closeOpened(itemSliding)'>
+                <ion-label>{{item.english}}</ion-label>
+                <ion-label>{{item.hungarian}}</ion-label>
+                <ion-label>{{item.partsOfSpeech}}</ion-label>
+                <ion-item-options>
+                    <!-- modify will be a modal with a form like the word modal -->
+                    <ion-item-option color="primary" (click)='modify(item)'>
+                        <ion-icon slot="icon-only" name="md-sync"></ion-icon>
+                    </ion-item-option>
+                    <!-- delete will be a popover "Are you sure to delete this word?" -->
+                    <ion-item-option color="danger" (click)='delete(item)'>
+                        <ion-icon slot="icon-only" name="md-trash"></ion-icon>
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item>
+        </ion-item-sliding>
+    </ion-virtual-scroll>
+</ion-content>

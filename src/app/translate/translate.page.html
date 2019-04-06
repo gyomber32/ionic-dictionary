@@ -6,3 +6,93 @@
     <ion-title>Transalte Page</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<div *ngIf="swap; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <ion-item>
+    <div class='container'>
+      <div class='column'>
+        <ion-label>English</ion-label>
+      </div>
+      <div class='column'>
+        <ion-button color="light" (click)='swapLanguage()'>
+          <ion-icon name="swap"></ion-icon>
+        </ion-button>
+      </div>
+      <div class='column'>
+        <ion-label>Hungarian</ion-label>
+      </div>
+    </div>
+  </ion-item>
+</ng-template>
+<ng-template #elseBlock>
+  <ion-item>
+    <div class='container'>
+      <div class='column'>
+        <ion-label>Hungarian</ion-label>
+      </div>
+      <div class='column'>
+        <ion-button color="light" (click)='swapLanguage()'>
+          <ion-icon name="swap"></ion-icon>
+        </ion-button>
+      </div>
+      <div class='column'>
+        <ion-label>English</ion-label>
+      </div>
+    </div>
+  </ion-item>
+</ng-template>
+
+<ion-content>
+
+  <div *ngIf="swap; then blockThen else blockElse"></div>
+  <ng-template #blockThen>
+    <div class='card'>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>English</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea [(ngModel)]='englishWord' placeholder="English word..."></ion-textarea>
+        </ion-card-content>
+      </ion-card>
+      <ion-button mat-raised-button size="large" color='light' (click)='translate()'
+        [disabled]='translateButtonDisabled'>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Hungarian</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea [(ngModel)]='hungarianWord' readonly='true' placeholder="Hungarian word..."></ion-textarea>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ng-template>
+  <ng-template #blockElse>
+    <div class='card'>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Hungarian</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea [(ngModel)]='hungarianWord' placeholder="Hungarian word..."></ion-textarea>
+        </ion-card-content>
+      </ion-card>
+      <ion-button mat-raised-button size="large" color='light' (click)='translate()'
+        [disabled]='translateButtonDisabled'>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>English</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea [(ngModel)]='englishWord' readonly='true' placeholder="English word..."></ion-textarea>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ng-template>
+
+</ion-content>

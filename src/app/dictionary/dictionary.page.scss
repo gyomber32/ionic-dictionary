@@ -1,3 +1,16 @@
 .my-custom-menu {
   --width: 200px;
 }
+
+.table-header > ion-label {
+  width: 33.33%;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-content > ion-virtual-scroll > ion-item-sliding > ion-item > ion-label {
+  width: 33.33%;
+  float: left;
+  text-align: center;
+}

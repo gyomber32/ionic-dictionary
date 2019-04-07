@@ -1,0 +1,17 @@
+ion-content > form > ion-item > ion-label {
+  font-weight: bold;
+  width: 33.33%;
+  float: left;
+}
+
+ion-content > form > ion-item > ion-input,
+ion-select,
+ion-textarea {
+  min-width: 66.66%;
+  float: left;
+}
+
+ion-content > form > ion-item > ion-input,
+ion-select {
+  padding-left: 8px;
+}

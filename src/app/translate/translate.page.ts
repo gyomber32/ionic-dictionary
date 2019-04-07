@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CommonService } from '../services/common.service';
+
 @Component({
   selector: 'app-translate',
   templateUrl: './translate.page.html',
@@ -12,7 +14,7 @@ export class TranslatePage implements OnInit {
   private hungarianWord: string;
   private englishWord: string;
 
-  constructor() { }
+  constructor(private commonService: CommonService) { }
 
   public swapLanguage(): void {
     if (this.swap === true) {
@@ -23,7 +25,11 @@ export class TranslatePage implements OnInit {
   }
 
   public translate(): void {
-
+    const word = [{
+      english: 'home',
+      hungarian: 'otthon',
+    }];
+    this.commonService.updateWord(word);
   }
 
   ngOnInit() {

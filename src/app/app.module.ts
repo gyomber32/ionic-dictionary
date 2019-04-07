@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -9,10 +10,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { WordPage } from './dictionary/word/word.page';
+import { ModifyPage } from './dictionary/modify/modify.page';
+
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [AppComponent, WordPage, ModifyPage],
+  entryComponents: [WordPage, ModifyPage],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -20,4 +30,4 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

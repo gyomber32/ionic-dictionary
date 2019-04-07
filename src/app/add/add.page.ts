@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { CommonService } from '../services/common.service';
@@ -12,7 +13,7 @@ export class AddPage implements OnInit {
 
   private additionForm: FormGroup;
 
-  constructor(private commonService: CommonService, private formBuilder: FormBuilder) { }
+  constructor(private commonService: CommonService, private navController: NavController, private formBuilder: FormBuilder) { }
 
   public formValidator() {
     this.additionForm = this.formBuilder.group({
@@ -24,7 +25,7 @@ export class AddPage implements OnInit {
     });
   }
 
-  onSubmit() {
+  public onSubmit() {
     // stop here if form is invalid
     if (this.additionForm.invalid) {
       return;
@@ -37,8 +38,13 @@ export class AddPage implements OnInit {
     }
   }
 
+  public closeModal(): void {
+    this.additionForm.reset();
+    this.navController.back();
+  }
+
   ngOnInit() {
-    // this.formValidator();
+    this.formValidator();
     this.commonService.castWord.subscribe((word) => {
       console.log(word);
     });

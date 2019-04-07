@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { IonItemSliding } from '@ionic/angular';
+import { ModalController, IonItemSliding, AlertController } from '@ionic/angular';
 
 import { WordPage } from './word/word.page';
+import { ModifyPage } from './modify/modify.page';
 
 import { DictionaryElement } from '../dictionary.interface';
 
@@ -121,7 +121,7 @@ export class DictionaryPage {
     }
   ];
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private alertController: AlertController) { }
 
   public async openModal(item: DictionaryElement) {
     const modal = await this.modalController.create({
@@ -141,14 +141,39 @@ export class DictionaryPage {
     }, 5000);
   }
 
-  public modify(item: DictionaryElement): void {
-    // TO DO
+  public async modify(item: DictionaryElement) {
+    const modal = await this.modalController.create({
+      component: ModifyPage,
+      componentProps: { item: item }
+    });
+    return await modal.present();
   }
 
-  public delete(item: DictionaryElement): void {
-    // TO DO
+  async delete(item: DictionaryElement) {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: 'Are you sure to delete the word <strong>' + item.english + '</strong>?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Remove',
+          handler: () => {
+            console.log('Removed from database.');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
-  ionViewDidLoad() { }
+  ionViewDidLoad() {
+  }
 
 }

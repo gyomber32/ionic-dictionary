@@ -3,12 +3,12 @@
     <ion-menu-toggle>
       <ion-icon name="menu"></ion-icon>
     </ion-menu-toggle>
-    <ion-title>Add Page</ion-title>
+    <ion-title>Modify Page</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="additionForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="modifyForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label>English</ion-label>
       <ion-input type="text" formControlName="english"
@@ -53,7 +53,7 @@
       <ion-label>Example</ion-label>
       <ion-textarea type="text" formControlName="example" matInput placeholder="Example"></ion-textarea>
     </ion-item>
-    <ion-button expand="block" type="submit" [disabled]="!additionForm.valid">Add</ion-button>
+    <ion-button expand="block" type="submit" [disabled]="!modifyForm.valid">Modify</ion-button>
     <ion-button expand="block" color='danger' (click)='closeModal()'>Cancel</ion-button>
   </form>
 </ion-content>

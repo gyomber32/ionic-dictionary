@@ -11,10 +11,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { WordPage } from './dictionary/word/word.page';
+import { ModifyPage } from './dictionary/modify/modify.page';
 
 @NgModule({
-  declarations: [AppComponent, WordPage],
-  entryComponents: [WordPage],
+  declarations: [AppComponent, WordPage, ModifyPage],
+  entryComponents: [WordPage, ModifyPage],
   imports: [
     BrowserModule,
     FormsModule,

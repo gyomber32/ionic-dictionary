@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController, IonItemSliding, AlertController } from '@ionic/angular';
 
 import { WordPage } from './word/word.page';
+import { ModifyPage } from './modify/modify.page';
 
 import { DictionaryElement } from '../dictionary.interface';
 
@@ -120,7 +121,7 @@ export class DictionaryPage {
     }
   ];
 
-  constructor(private modalController: ModalController, public alertController: AlertController) { }
+  constructor(private modalController: ModalController, private alertController: AlertController) { }
 
   public async openModal(item: DictionaryElement) {
     const modal = await this.modalController.create({
@@ -140,8 +141,12 @@ export class DictionaryPage {
     }, 5000);
   }
 
-  public modify(item: DictionaryElement): void {
-    // TO DO
+  public async modify(item: DictionaryElement) {
+    const modal = await this.modalController.create({
+      component: ModifyPage,
+      componentProps: { item: item }
+    });
+    return await modal.present();
   }
 
   async delete(item: DictionaryElement) {

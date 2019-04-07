@@ -54,5 +54,6 @@
       <ion-textarea type="text" formControlName="example" matInput placeholder="Example"></ion-textarea>
     </ion-item>
     <ion-button expand="block" type="submit" [disabled]="!additionForm.valid">Add</ion-button>
+    <ion-button expand="block" color='danger' (click)='closeModal()'>Cancel</ion-button>
   </form>
 </ion-content>

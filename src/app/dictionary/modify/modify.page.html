@@ -1,9 +1,59 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>modify</ion-title>
+  <ion-toolbar color="primary">
+    <ion-menu-toggle>
+      <ion-icon name="menu"></ion-icon>
+    </ion-menu-toggle>
+    <ion-title>Modify Page</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="modifyForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label>English</ion-label>
+      <ion-input type="text" formControlName="english"
+        [ngClass]="{ 'is-invalid': additionSubmitted && getAdditionForm.english.errors }" matInput
+        placeholder="English"></ion-input>
+      <div *ngIf="additionSubmitted && getAdditionForm.english.errors" class="invalid-feedback">
+        <div *ngIf="getAdditionForm.english.errors.required">The english word is required!</div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hungarian</ion-label>
+      <ion-input type="text" formControlName="hungarian"
+        [ngClass]="{ 'is-invalid': additionSubmitted && getAdditionForm.hungarian.errors }" matInput
+        placeholder="Hungarian"></ion-input>
+      <div *ngIf="additionSubmitted && getAdditionForm.hungarian.errors" class="invalid-feedback">
+        <div *ngIf="getAdditionForm.hungarian.errors.required">The hungarian word is required!</div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Parts of Speech</ion-label>
+      <ion-select type="text" formControlName="partsOfSpeech"
+        [ngClass]="{ 'is-invalid': additionSubmitted && getAdditionForm.partsOfSpeech.errors }"
+        placeholder="Parts of Speech">
+        <ion-select-option value="noun">noun</ion-select-option>
+        <ion-select-option value="pronoun">pronoun</ion-select-option>
+        <ion-select-option value="adjective">adjective</ion-select-option>
+        <ion-select-option value="verb">verb</ion-select-option>
+        <ion-select-option value="adverb">adverb</ion-select-option>
+        <ion-select-option value="preposition">preposition</ion-select-option>
+        <ion-select-option value="conjunction">conjunction</ion-select-option>
+        <ion-select-option value="interjenction">interjenction</ion-select-option>
+      </ion-select>
+      <div *ngIf="additionSubmitted && getAdditionForm.partsOfSpeach.errors" class="invalid-feedback">
+        <div *ngIf="getAdditionForm.partsOfSpeach.errors.required">The parts of speech is required!</div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Synonym</ion-label>
+      <ion-input type="text" formControlName="synonym" matInput placeholder="Synonym"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Example</ion-label>
+      <ion-textarea type="text" formControlName="example" matInput placeholder="Example"></ion-textarea>
+    </ion-item>
+    <ion-button expand="block" type="submit" [disabled]="!modifyForm.valid">Modify</ion-button>
+    <ion-button expand="block" color='danger' (click)='closeModal()'>Cancel</ion-button>
+  </form>
 </ion-content>

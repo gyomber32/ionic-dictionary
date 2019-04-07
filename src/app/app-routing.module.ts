@@ -22,7 +22,9 @@ const routes: Routes = [
   {
     path: 'word',
     loadChildren: './dictionary/word/word.module#WordPageModule'
-  }
+  },
+  { path: 'modify', loadChildren: './dictionary/modify/modify.module#ModifyPageModule' },
+  { path: 'delete', loadChildren: './dictionary/delete/delete.module#DeletePageModule' }
 ];
 
 @NgModule({

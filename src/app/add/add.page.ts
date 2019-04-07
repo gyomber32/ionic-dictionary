@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
+import { CommonService } from '../services/common.service';
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.page.html',
@@ -10,7 +12,7 @@ export class AddPage implements OnInit {
 
   private additionForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private commonService: CommonService, private formBuilder: FormBuilder) { }
 
   public formValidator() {
     this.additionForm = this.formBuilder.group({
@@ -37,6 +39,9 @@ export class AddPage implements OnInit {
 
   ngOnInit() {
     // this.formValidator();
+    this.commonService.castWord.subscribe((word) => {
+      console.log(word);
+    });
   }
 
 }

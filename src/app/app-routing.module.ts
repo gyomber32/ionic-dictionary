@@ -20,6 +20,7 @@ const routes: Routes = [
     loadChildren: './add/add.module#AddPageModule'
   },
   { path: 'word', loadChildren: './dictionary/word/word.module#WordPageModule' },
+  { path: 'addition', loadChildren: './addition/addition.module#AdditionPageModule' },
 ];
 
 @NgModule({

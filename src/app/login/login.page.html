@@ -4,14 +4,14 @@
       <form (ngSubmit)="onLogin(loginForm)" #loginForm='ngForm'>
         <ion-item>
           <ion-label for='email'>Email</ion-label>
-          <ion-input type="email" id='email' name='email' ngModel></ion-input>
+          <ion-input type="email" id='email' name='email' ngModel required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Password</ion-label>
-          <ion-input type="password" id='password' name='password' ngModel></ion-input>
+          <ion-input type="password" id='password' name='password' ngModel required></ion-input>
         </ion-item>
         <br>
-        <ion-button expand="block" type="submit" [disabled]="loginForm.form.valid">Login</ion-button>
+        <ion-button expand="block" type="submit" [disabled]="!loginForm.form.valid">Login</ion-button>
       </form>
     </ion-card-content>
   </ion-card>

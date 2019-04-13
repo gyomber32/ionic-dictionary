@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'modify',
     loadChildren: './dictionary/modify/modify.module#ModifyPageModule'
   },
+  {
+    path: 'login',
+    loadChildren: './login/login.module#LoginPageModule'
+  }
 ];
 
 @NgModule({

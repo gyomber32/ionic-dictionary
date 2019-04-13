@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -7,12 +7,24 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  private firebaseConfig = {
+    apiKey: "AIzaSyBIZZ5AROgO5l8D6VGQOqIIV1PGC95XRso",
+    authDomain: "dictionary-7db0c.firebaseapp.com",
+    databaseURL: "https://dictionary-7db0c.firebaseio.com",
+    projectId: "dictionary-7db0c",
+    storageBucket: "dictionary-7db0c.appspot.com",
+    messagingSenderId: "1085421547703"
+  };
 
   private menuItems = [
     {
@@ -55,6 +67,10 @@ export class AppComponent {
     }, (error) => {
       console.log(error);
     });
+  }
+
+  ngOnInit() {
+    firebase.initializeApp(this.firebaseConfig);
   }
 
 }

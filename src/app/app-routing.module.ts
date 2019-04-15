@@ -4,8 +4,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dictionary',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: './login/login.module#LoginPageModule'
   },
   {
     path: 'dictionary',
@@ -26,10 +30,6 @@ const routes: Routes = [
   {
     path: 'modify',
     loadChildren: './dictionary/modify/modify.module#ModifyPageModule'
-  },
-  {
-    path: 'login',
-    loadChildren: './login/login.module#LoginPageModule'
   }
 ];
 

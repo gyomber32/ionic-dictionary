@@ -18,12 +18,12 @@ import 'firebase/auth';
 export class AppComponent implements OnInit {
 
   private firebaseConfig = {
-    apiKey: "AIzaSyBIZZ5AROgO5l8D6VGQOqIIV1PGC95XRso",
-    authDomain: "dictionary-7db0c.firebaseapp.com",
-    databaseURL: "https://dictionary-7db0c.firebaseio.com",
-    projectId: "dictionary-7db0c",
-    storageBucket: "dictionary-7db0c.appspot.com",
-    messagingSenderId: "1085421547703"
+    apiKey: 'AIzaSyBIZZ5AROgO5l8D6VGQOqIIV1PGC95XRso',
+    authDomain: 'dictionary-7db0c.firebaseapp.com',
+    databaseURL: 'https://dictionary-7db0c.firebaseio.com',
+    projectId: 'dictionary-7db0c',
+    storageBucket: 'dictionary-7db0c.appspot.com',
+    messagingSenderId: '1085421547703'
   };
 
   private menuItems = [

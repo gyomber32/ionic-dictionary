@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { WordPage } from './dictionary/word/word.page';
 import { ModifyPage } from './dictionary/modify/modify.page';
 
+import { AuthService } from './services/auth.service';
+
 @NgModule({
   declarations: [AppComponent, WordPage, ModifyPage],
   entryComponents: [WordPage, ModifyPage],
@@ -26,7 +28,8 @@ import { ModifyPage } from './dictionary/modify/modify.page';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
